@@ -6,15 +6,14 @@ package com.lightbend.lagom.internal.javadsl.broker.kafka
 
 import java.io.File
 import java.util.concurrent.atomic.AtomicLong
-import java.util.concurrent.CountDownLatch
-import java.util.concurrent.TimeUnit
+import java.util.concurrent.{CompletableFuture, CompletionStage, CountDownLatch, TimeUnit}
 
-import akka.japi.{ Pair => JPair }
+import akka.japi.{Pair => JPair}
 import akka.persistence.query.NoOffset
 import akka.persistence.query.Offset
 import akka.persistence.query.Sequence
 import akka.stream.OverflowStrategy
-import akka.stream.javadsl.{ Source => JSource }
+import akka.stream.javadsl.{Source => JSource}
 import akka.stream.scaladsl.Flow
 import akka.stream.scaladsl.Sink
 import akka.stream.scaladsl.Source
@@ -40,7 +39,7 @@ import com.lightbend.lagom.javadsl.persistence.AggregateEvent
 import com.lightbend.lagom.javadsl.persistence.AggregateEventTag
 import com.lightbend.lagom.javadsl.persistence.PersistentEntityRef
 import com.lightbend.lagom.javadsl.persistence.PersistentEntityRegistry
-import com.lightbend.lagom.javadsl.persistence.{ Offset => JOffset }
+import com.lightbend.lagom.javadsl.persistence.{Offset => JOffset}
 import com.lightbend.lagom.javadsl.server.ServiceGuiceSupport
 import com.lightbend.lagom.spi.persistence.InMemoryOffsetStore
 import com.lightbend.lagom.spi.persistence.OffsetStore
